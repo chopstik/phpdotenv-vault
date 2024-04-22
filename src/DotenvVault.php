@@ -180,7 +180,11 @@ class DotenvVault extends Dotenv {
 
     public function _log($message)
     {
-        error_log("[dotenv-vault][INFO] {$message}");
+        if (getenv('DOTENV_VAULT_SILENT') === 'true') {
+            return;
+        }
+
+        error_log("[dotenv-vault][INFO] {$message}", 4);
     }
 
     public function _loadDotenv()
@@ -236,7 +240,7 @@ class DotenvVault extends Dotenv {
 
                 // Decrypt
                 $decrypted = (new Decrypter())->decrypt($attrs['ciphertext'], $attrs['key']);
-                
+
                 // If successful, break the loop
                 break;
             } catch (Exception $error) {

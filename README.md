@@ -139,6 +139,10 @@ Yes. It is safe and recommended to do so. It contains your encrypted envs, and y
 
 No. It is the key that unlocks your encrypted environment variables. Be very careful who you share this key with. Do not let it leak.
 
+#### Can I silence the logging?
+
+Yes. Set `DOTENV_VAULT_SILENT=true` in your environment.
+
 ## Contributing
 
 1. Fork it
