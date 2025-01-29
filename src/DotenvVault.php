@@ -180,11 +180,7 @@ class DotenvVault extends Dotenv {
 
     public function _log($message)
     {
-        if (getenv('DOTENV_VAULT_SILENT') === 'true') {
-            return;
-        }
-
-        error_log("[dotenv-vault][INFO] {$message}", 4);
+//        error_log("[dotenv-vault][INFO] {$message}", 4);
     }
 
     public function _loadDotenv()
